@@ -12,7 +12,7 @@ PMan is a command line tool in C which uses Linux system call to start, pause, r
 - pstat <pid>: PMan will return the information of the process <pid>.
 ```
 
-#### ~~Helper program:~~
+#### ~~Helper program~~
 ~~The package also includes two helper programs, inf.c and args.c, which are provided by Dr.Kui Wu.~~
 
 #### How to use PMan

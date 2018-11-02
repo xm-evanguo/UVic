@@ -15,7 +15,7 @@ PMan is a command line tool in C which uses Linux system call to start, pause, r
 #### ~~Helper program:~~
 ~~The package also includes two helper programs, inf.c and args.c, which are provided by Dr.Kui Wu.~~
 
-#### How to use PMan:
+#### How to use PMan
   Use "make clean" to delete the files "PMan", "inf", "args" and "*.exe" under current directory.
   Use "make" to compile PMan, inf and args.
   After compiling, entre "./PMan" to start the program.

@@ -9,9 +9,9 @@ The commands LW, LM and LS normally follow by number. If there are something els
 .LW 30
 .LS 1Here is a sentence with enough words to require some sort of word wrap. 
 ```
-Since the LS follows by a stringt, the program will report an error like in e_output3.txt:
+Since the LS follows by a stringt, the program will raise ValueError:
 ```
-Error on line 2: value for LS is not valid
+ValueError: value for LS on line 2 is not valid
 ```
 Another example is when the commands are followed by number, but the number is out of bound. Base on the description for assignment 2, LS should not be greater than 2, and LW and LS cannot be smaller than 0. Therefore, if LS follows by -1, like in e_input01.txt, the program will also report a value not valid error. 
 
@@ -34,8 +34,8 @@ the lines
         must be preserved. In essence, the
 command .LW is ignored.
 ```
-The FT is followed by "1" in line 2. The program will report an error:
+The FT is followed by "1" in line 2. The program will raise ValueError:
 ```
-Error on line 2: FT must follow with on or off only
+ValueError: value for FT on line 2 is not valid
 ```
 All of the error test files are in a3/tests

@@ -1,7 +1,7 @@
 CC=javac
 GC=gcc
 
-target: newfolder sud2sat sud2sat_v2 sat2sud anotherSolver
+target: newfolder sud2sat sud2sat_v2 sat2sud
 
 newfolder:
 	mkdir -p tmp output
@@ -15,9 +15,6 @@ sat2sud:
 sud2sat_v2:
 	$(CC) sud2sat_v2.java
 
-anotherSolver: satz213/satz.c
-	$(GC) satz213/satz.c -w -o satz213/satz
-
 basic:
 	./multsuds.sh tests/basic50.txt
 
@@ -26,9 +23,6 @@ extend1:
 
 extend2:
 	./singlesud_v2.sh tests/easy.txt
-
-extend3:
-	./satz213.sh tests/easy.txt
 
 clean:
 	/bin/rm -f *.class *.txt *.sol timetable

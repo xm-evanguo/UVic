@@ -70,17 +70,15 @@ The ```make extend2``` is a advence test case of changed minimal encoding and th
 - sud2sat_v2.java
 - sat2sud.java
 
-# Another SATsolver
-To solve the problem use another SATsolover from the www.cs.ubc.ca/˜hoos/SATLIB/index-ubc.html by ```(Satz213 (new version) (contributed by Chu-Min Li))``` modify by group member (Evan Guo) edited some errors.
-- Changed CLK_TCK to CLOCKS_PER_SEC
-```sh
-make extend3
-```
-The make extend3 is use another SATsolver compile and result will be showed by stdout, and they will be timetable record all history.
-#### Relative files: 
-- tests/easy.txt
-- satz213/satz.c
-- sat2sud.java
+# ~~Another SATsolver~~
+~~To solve the problem use another SATsolover from the www.cs.ubc.ca/~hoos/SATLIB/index-ubc.html by ```(Satz213 (new version) (contributed by Chu-Min Li))``` modify by group member (Evan Guo):~~
+- ~~Changed CLK_TCK to CLOCKS_PER_SEC~~
+
+~~The make extend3 is use another SATsolver compile and result will be showed by stdout, and they will be timetable record all history.~~
+#### ~~Relative files:~~
+- ~~tests/easy.txt~~
+- ~~satz213/satz.c~~
+- ~~sat2sud.java~~
 
 #### Compile the tests
 If you'd like to manually run a translator you can perform the actions in ```makefile``` by hand(eg. make testbasic, extend1...).
@@ -96,8 +94,6 @@ make basic
 make extend1
 # To compile the chanded minial edcoding
 make extend2
-# To compile the Another SATsolver
-make extend3
 ```
 
 # Todo       
@@ -112,5 +108,5 @@ make extend3
 
  * [x] Finish top 95 tests
  * [x] Finish the minimal encoding
- * [x] Finish use Another SATsolver
+ * [x] ~~Finish use Another SATsolver~~
  * [x] Try at least one alternate to the minimal encoding

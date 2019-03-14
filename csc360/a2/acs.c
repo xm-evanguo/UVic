@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <unistd.h>
 #include <sys/time.h>
 #include "p2.h"
 
@@ -139,6 +140,14 @@ int main(int argc, char *argv[]) {
     printf("The average waiting time for all customers in the system is: %.2f seconds. \n", totalavg);
     printf("The average waiting time for all business-class customers is: %.2f seconds. \n", busavg);
     printf("The average waiting time for all economy-class customers is: %.2f seconds. \n", ecoavg);
+    pthread_mutex_destroy(&c1_lock);
+    pthread_mutex_destroy(&c2_lock);
+    pthread_mutex_destroy(&c3_lock);
+    pthread_mutex_destroy(&c4_lock);
+    pthread_cond_destroy(&c1_convar);
+    pthread_cond_destroy(&c2_convar);
+    pthread_cond_destroy(&c3_convar);
+    pthread_cond_destroy(&c4_convar);
 }
 
 /*

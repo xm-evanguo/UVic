@@ -22,40 +22,40 @@ public class ProblemMissionariesCannibals extends Problem {
 
         //move two missionaries to boat
         ss = new StateMissionariesCannibals(s);
-        if(ss.boat == 0 && ss.stateArray[0][0] > 1){
+        if(!ss.boat && ss.stateArray[0][0] > 1){
             ss.stateArray[0][0] -= 2;
             ss.stateArray[1][0] += 2;
-            ss.boat = 1;
+            ss.boat = true;
             if(isStateAllow(ss)){
                 set.add(ss);
             }
         }
         ss = new StateMissionariesCannibals(s);
-        if(ss.boat == 1 && ss.stateArray[2][0] > 1){
+        if(ss.boat && ss.stateArray[2][0] > 1){
             //move left
             ss.stateArray[2][0] -= 2;
             ss.stateArray[1][0] += 2;
-            ss.boat = 0;
+            ss.boat = false;
             if(isStateAllow(ss)){
                 set.add(ss);
             }
         }
 
-        //move one missionary
+        //move one missionary on boat
         ss = new StateMissionariesCannibals(s);
-        if(ss.boat == 0 && ss.stateArray[0][0] > 0){
+        if(!ss.boat && ss.stateArray[0][0] > 0){
             ss.stateArray[0][0] -= 1;
             ss.stateArray[1][0] += 1;
-            ss.boat = 1;
+            ss.boat = true;
             if(isStateAllow(ss)){
                 set.add(ss);
             }
         }
         ss = new StateMissionariesCannibals(s);
-        if(ss.boat == 1 && ss.stateArray[2][0] > 0){
+        if(ss.boat && ss.stateArray[2][0] > 0){
             ss.stateArray[2][0] -= 1;
             ss.stateArray[0][0] += 1;
-            ss.boat = 0;
+            ss.boat = false;
             if(isStateAllow(ss)){
                 set.add(ss);
             }
@@ -63,23 +63,23 @@ public class ProblemMissionariesCannibals extends Problem {
 
         //move one missionary and one cannibal on boat
         ss = new StateMissionariesCannibals(s);
-        if(ss.boat == 0 && ss.stateArray[0][0] > 0 && ss.stateArray[0][1] > 0){
+        if(!ss.boat && ss.stateArray[0][0] > 0 && ss.stateArray[0][1] > 0){
             ss.stateArray[0][0] -= 1;
             ss.stateArray[0][1] -= 1;
             ss.stateArray[1][0] += 1;
             ss.stateArray[1][1] += 1;
-            ss.boat = 1;
+            ss.boat = true;
             if(isStateAllow(ss)){
                 set.add(ss);
             }
         }
         ss = new StateMissionariesCannibals(s);
-        if(ss.boat == 1 && ss.stateArray[2][0] > 0 && ss.stateArray[2][1] > 0){
+        if(ss.boat && ss.stateArray[2][0] > 0 && ss.stateArray[2][1] > 0){
             ss.stateArray[2][0] -= 1;
             ss.stateArray[2][1] -= 1;
             ss.stateArray[1][0] += 1;
             ss.stateArray[1][1] += 1;
-            ss.boat = 0;
+            ss.boat = false;
             if(isStateAllow(ss)){
                 set.add(ss);
             }
@@ -87,19 +87,19 @@ public class ProblemMissionariesCannibals extends Problem {
 
         //move two cannibals on boat
         ss = new StateMissionariesCannibals(s);
-        if(ss.boat == 0 && ss.stateArray[0][1] > 1){
+        if(!ss.boat && ss.stateArray[0][1] > 1){
             ss.stateArray[0][1] -= 2;
             ss.stateArray[1][1] += 2;
-            ss.boat = 1;
+            ss.boat = true;
             if(isStateAllow(ss)){
                 set.add(ss);
             }
         }
         ss = new StateMissionariesCannibals(s);
-        if(ss.boat == 1 && ss.stateArray[2][1] > 1){
+        if(ss.boat && ss.stateArray[2][1] > 1){
             ss.stateArray[2][1] -= 2;
             ss.stateArray[1][1] += 2;
-            ss.boat = 0;
+            ss.boat = false;
             if(isStateAllow(ss)){
                 set.add(ss);
             }
@@ -107,43 +107,29 @@ public class ProblemMissionariesCannibals extends Problem {
 
         //move one cannibal on boat
         ss = new StateMissionariesCannibals(s);
-        if(ss.boat == 0 && ss.stateArray[0][1] > 0){
+        if(!ss.boat && ss.stateArray[0][1] > 0){
             ss.stateArray[0][1] -= 1;
             ss.stateArray[1][1] += 1;
-            ss.boat = 1;
+            ss.boat = true;
             if(isStateAllow(ss)){
                 set.add(ss);
             }
         }
         ss = new StateMissionariesCannibals(s);
-        if(ss.boat == 1 && ss.stateArray[1][1] > 0){
+        if(ss.boat && ss.stateArray[2][1] > 0){
             ss.stateArray[2][1] -= 1;
             ss.stateArray[1][1] += 1;
-            ss.boat = 0;
+            ss.boat = false;
             if(isStateAllow(ss)){
                 set.add(ss);
             }
         }
 
-        //offload two missionaries boat
-        ss = new StateMissionariesCannibals(s);
-        if(ss.stateArray[1][0] == 2){
-            ss.stateArray[1][0] -= 2;
-            if(ss.boat == 0){
-                ss.stateArray[0][0] += 2;
-            }else{
-                ss.stateArray[2][0] += 2;
-            }
-            if(isStateAllow(ss)){
-                set.add(ss);
-            }
-        }
-
-        //offload one missionary boat
+        //offload one missionary on boat
         ss = new StateMissionariesCannibals(s);
         if(ss.stateArray[1][0] > 0){
             ss.stateArray[1][0] -= 1;
-            if(ss.boat == 0){
+            if(!ss.boat){
                 ss.stateArray[0][0] += 1;
             }else{
                 ss.stateArray[2][0] += 1;
@@ -151,16 +137,22 @@ public class ProblemMissionariesCannibals extends Problem {
             if(isStateAllow(ss)){
                 set.add(ss);
             }
+            if(ss.stateArray[1][0] + ss.stateArray[1][1] > 1){
+                ss.boat = !ss.boat;
+                if(isStateAllow(ss)){
+                    set.add(ss);
+                }
+            }
         }
 
-        //offload two cannibals boat
+        //offload two missionaries on boat
         ss = new StateMissionariesCannibals(s);
-        if(ss.stateArray[1][1] == 2){
-            ss.stateArray[1][1] -= 2;
-            if(ss.boat == 0){
-                ss.stateArray[0][1] += 2;
+        if(ss.stateArray[1][0] == 2){
+            ss.stateArray[1][0] -= 2;
+            if(!ss.boat){
+                ss.stateArray[0][0] += 2;
             }else{
-                ss.stateArray[2][1] += 2;
+                ss.stateArray[2][0] += 2;
             }
             if(isStateAllow(ss)){
                 set.add(ss);
@@ -171,10 +163,30 @@ public class ProblemMissionariesCannibals extends Problem {
         ss = new StateMissionariesCannibals(s);
         if(ss.stateArray[1][1] > 0){
             ss.stateArray[1][1] -= 1;
-            if(ss.boat == 0){
+            if(!ss.boat){
                 ss.stateArray[0][1] += 1;
             }else{
                 ss.stateArray[2][1] += 1;
+            }
+            if(isStateAllow(ss)){
+                set.add(ss);
+            }
+            if(ss.stateArray[1][0] + ss.stateArray[1][1] > 1){
+                ss.boat = !ss.boat;
+                if(isStateAllow(ss)){
+                    set.add(ss);
+                }
+            }
+        }
+
+        //offload two cannibals on boat
+        ss = new StateMissionariesCannibals(s);
+        if(ss.stateArray[1][1] == 2){
+            ss.stateArray[1][1] -= 2;
+            if(!ss.boat){
+                ss.stateArray[0][1] += 2;
+            }else{
+                ss.stateArray[2][1] += 2;
             }
             if(isStateAllow(ss)){
                 set.add(ss);
@@ -186,7 +198,7 @@ public class ProblemMissionariesCannibals extends Problem {
         if(ss.stateArray[1][0] > 0 && ss.stateArray[1][1] > 0){
             ss.stateArray[1][0] -= 1;
             ss.stateArray[1][1] -= 1;
-            if(ss.boat == 0){
+            if(!ss.boat){
                 ss.stateArray[0][0] += 1;
                 ss.stateArray[0][1] += 1;
             }else{
@@ -197,17 +209,14 @@ public class ProblemMissionariesCannibals extends Problem {
                 set.add(ss);
             }
         }
-
         return set;
     }
 
     private boolean isStateAllow(StateMissionariesCannibals state){
-        if(state.stateArray[0][1] > state.stateArray[0][0]
-            || state.stateArray[2][1] > state.stateArray[2][0]
-            || state.stateArray[1][0] + state.stateArray[1][1] > 2)
-            return false;
-        if(state.stateArray[1][0] + state.stateArray[1][1] == 0
-            && state.stateArray[0][0] + state.stateArray[0][1] != 0)
+        if((state.stateArray[0][0] != 0 && state.stateArray[0][1] > state.stateArray[0][0])
+            || (state.stateArray[2][0] != 0 && state.stateArray[2][1] > state.stateArray[2][0])
+            || state.stateArray[1][0] + state.stateArray[1][1] > 2
+        )
             return false;
         return true;
     }
@@ -224,22 +233,22 @@ public class ProblemMissionariesCannibals extends Problem {
         Search search  = new Search(problem);
 
         System.out.println("TreeSearch------------------------");
-        //System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
-        //System.out.println("UniformCostTreeSearch:\t\t" + search.UniformCostTreeSearch());
-        //System.out.println("DepthFirstTreeSearch:\t\t" + search.DepthFirstTreeSearch());
-        //System.out.println("GreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
-        //System.out.println("AstarTreeSearch:\t\t" + search.AstarTreeSearch());
+//        System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
+//        System.out.println("UniformCostTreeSearch:\t\t" + search.UniformCostTreeSearch());
+//        System.out.println("DepthFirstTreeSearch:\t\t" + search.DepthFirstTreeSearch());
+//        System.out.println("GreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
+//        System.out.println("AstarTreeSearch:\t\t" + search.AstarTreeSearch());
 
         System.out.println("\n\nGraphSearch----------------------");
-        System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
-        System.out.println("UniformCostGraphSearch:\t\t" + search.UniformCostGraphSearch());
-        //System.out.println("DepthFirstGraphSearch:\t\t" + search.DepthFirstGraphSearch());
-        //System.out.println("GreedyBestGraphSearch:\t\t" + search.GreedyBestFirstGraphSearch());
-        System.out.println("AstarGraphSearch:\t\t" + search.AstarGraphSearch());
+//        System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
+//        System.out.println("UniformCostGraphSearch:\t\t" + search.UniformCostGraphSearch());
+        System.out.println("DepthFirstGraphSearch:\t\t" + search.DepthFirstGraphSearch());
+        System.out.println("GreedyBestGraphSearch:\t\t" + search.GreedyBestFirstGraphSearch());
+//        System.out.println("AstarGraphSearch:\t\t" + search.AstarGraphSearch());
 
         System.out.println("\n\nIterativeDeepening----------------------");
-        //System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
-        System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
+        System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
+//        System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
     }
 
 }

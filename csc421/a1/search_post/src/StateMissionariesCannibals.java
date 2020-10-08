@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class StateMissionariesCannibals {
     int[][] stateArray;
-    int boat;
+    boolean boat;
     //stateArray[0] = left bank
     //stateArray[1] = boat
     //stateArray[2] = right bank
@@ -11,7 +11,7 @@ public class StateMissionariesCannibals {
 
     public StateMissionariesCannibals(int[][] stateArray) {
         this.stateArray = stateArray;
-        this.boat = 0;
+        this.boat = false;
     }
 
     public StateMissionariesCannibals(StateMissionariesCannibals state){
@@ -26,7 +26,8 @@ public class StateMissionariesCannibals {
     }
 
     public boolean equals(Object o) {
-        return Arrays.deepEquals( stateArray, ((StateMissionariesCannibals) o).stateArray );
+        return Arrays.deepEquals( stateArray, ((StateMissionariesCannibals) o).stateArray )
+                && boat == ((StateMissionariesCannibals) o).boat;
     }
 
     public int hashCode() {

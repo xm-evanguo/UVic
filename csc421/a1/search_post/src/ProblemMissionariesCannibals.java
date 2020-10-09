@@ -223,7 +223,15 @@ public class ProblemMissionariesCannibals extends Problem {
 
     double step_cost(Object fromState, Object toState) { return 1; }
 
-    public double h(Object state) { return 0; }
+    public double h(Object state) {
+        StateMissionariesCannibals s = (StateMissionariesCannibals) state;
+        double sum = 0;
+        for(int i = 0; i < 2; i++){
+            sum += s.stateArray[i][0];
+            sum += s.stateArray[i][1];
+        }
+        return 6 - sum;
+    }
 
     public static void main(String[] args) throws Exception {
         ProblemMissionariesCannibals problem = new ProblemMissionariesCannibals();
@@ -234,17 +242,17 @@ public class ProblemMissionariesCannibals extends Problem {
 
         System.out.println("TreeSearch------------------------");
 //        System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
-//        System.out.println("UniformCostTreeSearch:\t\t" + search.UniformCostTreeSearch());
+        //System.out.println("UniformCostTreeSearch:\t\t" + search.UniformCostTreeSearch());
 //        System.out.println("DepthFirstTreeSearch:\t\t" + search.DepthFirstTreeSearch());
 //        System.out.println("GreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
 //        System.out.println("AstarTreeSearch:\t\t" + search.AstarTreeSearch());
 
         System.out.println("\n\nGraphSearch----------------------");
 //        System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
-//        System.out.println("UniformCostGraphSearch:\t\t" + search.UniformCostGraphSearch());
-        System.out.println("DepthFirstGraphSearch:\t\t" + search.DepthFirstGraphSearch());
-        System.out.println("GreedyBestGraphSearch:\t\t" + search.GreedyBestFirstGraphSearch());
-//        System.out.println("AstarGraphSearch:\t\t" + search.AstarGraphSearch());
+        System.out.println("UniformCostGraphSearch:\t\t" + search.UniformCostGraphSearch());
+//        System.out.println("DepthFirstGraphSearch:\t\t" + search.DepthFirstGraphSearch());
+//        System.out.println("GreedyBestGraphSearch:\t\t" + search.GreedyBestFirstGraphSearch());
+        System.out.println("AstarGraphSearch:\t\t" + search.AstarGraphSearch());
 
         System.out.println("\n\nIterativeDeepening----------------------");
         System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());

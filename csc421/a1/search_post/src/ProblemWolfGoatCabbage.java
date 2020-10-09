@@ -70,7 +70,14 @@ public class ProblemWolfGoatCabbage extends Problem {
 
     double step_cost(Object fromState, Object toState) { return 1; }
 
-    public double h(Object state) { return 0; }
+    public double h(Object state) {
+        StateWolfGoatCabbage s = (StateWolfGoatCabbage) state;
+        double sum = 0;
+        for(int i = 0; i < 4; i++){
+            sum += (double)((StateWolfGoatCabbage) state).stateArray[0];
+        }
+        return 4 - sum;
+    }
 
     public static void main(String[] args) throws Exception {
         ProblemWolfGoatCabbage problem = new ProblemWolfGoatCabbage();

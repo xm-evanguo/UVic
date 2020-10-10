@@ -70,7 +70,7 @@ public class ProblemPancake extends Problem {
         System.out.println("AstarTreeSearch:\t\t" + search.AstarTreeSearch());
 
         System.out.println("\n\nGraphSearch----------------------");
-        System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
+        //System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
         System.out.println("UniformCostGraphSearch:\t\t" + search.UniformCostGraphSearch());
         //System.out.println("DepthFirstGraphSearch:\t\t" + search.DepthFirstGraphSearch());
         //System.out.println("GreedyBestGraphSearch:\t\t" + search.GreedyBestFirstGraphSearch());
@@ -78,7 +78,7 @@ public class ProblemPancake extends Problem {
 
         System.out.println("\n\nIterativeDeepening----------------------");
         //System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
-        System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
+        //System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
     }
 
 }

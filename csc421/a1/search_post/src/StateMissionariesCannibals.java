@@ -35,6 +35,6 @@ public class StateMissionariesCannibals {
     }
 
     public String toString() {
-        return Arrays.deepToString( stateArray );
+        return Arrays.deepToString( stateArray ) + " " + boat;
     }
 }

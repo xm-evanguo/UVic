@@ -73,10 +73,13 @@ public class ProblemWolfGoatCabbage extends Problem {
     public double h(Object state) {
         StateWolfGoatCabbage s = (StateWolfGoatCabbage) state;
         double sum = 0;
-        for(int i = 0; i < 4; i++){
-            sum += (double)((StateWolfGoatCabbage) state).stateArray[0];
+        for(int i = 1; i < 4; i++){
+           if(s.stateArray[i] == -1){
+               sum += 1;
+           }
         }
-        return 4 - sum;
+        sum += sum - 1;
+        return sum;
     }
 
     public static void main(String[] args) throws Exception {
@@ -88,21 +91,21 @@ public class ProblemWolfGoatCabbage extends Problem {
 
         System.out.println("TreeSearch------------------------");
         //System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
-        //System.out.println("UniformCostTreeSearch:\t\t" + search.UniformCostTreeSearch());
+        System.out.println("UniformCostTreeSearch:\t\t" + search.UniformCostTreeSearch());
         //System.out.println("DepthFirstTreeSearch:\t\t" + search.DepthFirstTreeSearch());
         //System.out.println("GreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
-        //System.out.println("AstarTreeSearch:\t\t" + search.AstarTreeSearch());
+        System.out.println("AstarTreeSearch:\t\t" + search.AstarTreeSearch());
 
         System.out.println("\n\nGraphSearch----------------------");
-        System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
+        //System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
         System.out.println("UniformCostGraphSearch:\t\t" + search.UniformCostGraphSearch());
         //System.out.println("DepthFirstGraphSearch:\t\t" + search.DepthFirstGraphSearch());
         //System.out.println("GreedyBestGraphSearch:\t\t" + search.GreedyBestFirstGraphSearch());
         System.out.println("AstarGraphSearch:\t\t" + search.AstarGraphSearch());
 
         System.out.println("\n\nIterativeDeepening----------------------");
-        //System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
-        System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
+        System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
+        //System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
     }
 
 }

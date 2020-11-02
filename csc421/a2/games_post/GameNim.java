@@ -16,14 +16,14 @@ public class GameNim extends Game {
     public boolean isWinState(State state)
     {
         StateNim s = (StateNim) state;
-        if(s.remainingCoin == 0 )
+        if(s.remainingCoin == 1 )
             return true;
         return false;
     }
 
     public boolean isStuckState(State state) {
         StateNim s = (StateNim) state;
-        if(s.remainingCoin < 0 || s.remainingCoin > 13)
+        if(s.remainingCoin <= 0)
             return true;
         return false;
     }
@@ -39,12 +39,11 @@ public class GameNim extends Game {
 
         StateNim successor_state;
 
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 3 && s.remainingCoin >= i; i++) {
             successor_state = new StateNim(s);
             successor_state.remainingCoin -= i;
-            if(successor_state.remainingCoin >= 0){
-                successors.add(successor_state);
-            }
+            successor_state.player = successor_state.player == 0 ? 1 : 0;
+            successors.add(successor_state);
         }
 
         return successors;
@@ -53,7 +52,7 @@ public class GameNim extends Game {
     public double eval(State state)
     {
         if(isWinState(state)) {
-            if (state.player == 0)
+            if (state.player == 1)
                 return WinningScore;
             else
                 return LosingScore;
@@ -104,7 +103,7 @@ public class GameNim extends Game {
             //Who wins?
             if ( game.isWinState(game.currentState) ) {
 
-                if (game.currentState.player == 0) //i.e. last move was by the computer
+                if (game.currentState.player == 1) //i.e. current move is by human
                     System.out.println("Computer wins!");
                 else
                     System.out.println("You win!");

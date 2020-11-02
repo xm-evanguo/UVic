@@ -324,3 +324,4 @@ Mkfile.old
 dkms.conf
 
 .idea/
+*.iml
